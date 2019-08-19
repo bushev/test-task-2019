@@ -1,0 +1,14 @@
+<ion-content>
+  <ion-progress-bar
+    *ngIf="isPreloader.list"
+    type="indeterminate"
+  ></ion-progress-bar>
+  <ion-list>
+    <ion-card *ngFor="let item of items; let idx = index;  trackBy: trackByFn">
+      <ion-card-header>
+        <ion-card-title>{{ item.name }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>{{ item.updatedAt | date:'medium' }}</ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>
