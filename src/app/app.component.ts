@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthService } from './auth/auth.service';
-import { Router } from '@angular/router';
 
 /**
  * Рутовый компонет
@@ -20,7 +19,7 @@ export class AppComponent {
     private _statusBar: StatusBar,
     private _splashScreen: SplashScreen,
     private _authService: AuthService,
-    private _router: Router
+    private _navCtrl: NavController
   ) {
     this.initializeApp();
   }
@@ -33,7 +32,7 @@ export class AppComponent {
 
     this._authService.isAuthenticated().subscribe({
       next: (isAuth) => {
-        this._router.navigateByUrl(isAuth ? '/home' : '/auth');
+        this._navCtrl.navigateForward(isAuth ? '/home' : '/auth');
       },
       error: (e) => {
         console.error('ERROR:isAuthenticated: ', e);
