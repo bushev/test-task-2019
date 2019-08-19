@@ -3,7 +3,24 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  aws: {
+    // настройки для авторизации
+    Auth: {
+      region: 'us-east-1',
+      userPoolId: 'us-east-1_MPvCeCJvh',
+      userPoolWebClientId: '1sfp40ks5bvhi3j8kgga7gktd2'
+    },
+    // настроики для api
+    API: {
+      endpoints: [
+        {
+          name: 'tasks',
+          endpoint: 'https://7vxy32ez3d.execute-api.us-east-1.amazonaws.com'
+        }
+      ]
+    }
+  }
 };
 
 /*

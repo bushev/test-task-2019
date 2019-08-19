@@ -1,0 +1,47 @@
+<form
+  [formGroup]="form"
+  (submit)="onSubmit($event)"
+>
+  <ion-list>
+
+    <ion-item
+      margin-bottom
+      no-padding
+    >
+      <ion-label position="floating">Email</ion-label>
+      <ion-input
+        [formControl]="form.controls['email']"
+        type="email"
+        autocorrect="off"
+        autocapitalize="none"
+        formControlName="email"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label
+        position="floating"
+        required
+      >Password</ion-label>
+      <ion-input
+        [formControl]="form.controls['password']"
+        type="password"
+        formControlName="password"
+        required
+      ></ion-input>
+    </ion-item>
+
+  </ion-list>
+  <ion-button
+    type="submit"
+    color="primary"
+    expand="full"
+    [disabled]="isPreloader.form || !form.valid"
+  >Sign In</ion-button>
+</form>
+
+<ion-progress-bar
+  *ngIf="isPreloader.form"
+  type="indeterminate"
+></ion-progress-bar>

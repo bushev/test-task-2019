@@ -1,0 +1,10 @@
+// @todo переделать, есть проблема с наезжанием блока на форму
+.auth-logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+
+  img {
+    height: 90px;
+  }
+}
